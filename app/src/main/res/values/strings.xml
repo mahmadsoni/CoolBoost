@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CoolBoost</string>
+
+    <string name="notification_channel_monitoring">Performance Monitoring</string>
+    <string name="notification_channel_monitoring_desc">Ongoing low-priority status while CoolBoost monitors temperature and memory in the background.</string>
+    <string name="notification_channel_alerts">Overheating Alerts</string>
+    <string name="notification_channel_alerts_desc">Important alerts when your device is at risk of overheating.</string>
+
+    <string name="notification_monitoring_title">CoolBoost is monitoring your device</string>
+    <string name="notification_monitoring_text">%1$d°C · RAM %2$d%%</string>
+
+    <string name="notification_cooling_title">Cooling in progress</string>
+    <string name="cooling_running_smart">Running Smart Cooling…</string>
+    <string name="cooling_running_extreme">Running Extreme Cooling…</string>
+
+    <string name="alert_overheat_title">Device is overheating</string>
+    <string name="alert_overheat_text">Battery temperature reached %1$d°C. Tap to cool down now.</string>
+</resources>
