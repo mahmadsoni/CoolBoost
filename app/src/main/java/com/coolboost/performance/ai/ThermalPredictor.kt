@@ -38,10 +38,10 @@ class ThermalPredictor {
         }
 
         val minutesToThreshold = degreesRemaining / slopePerMinute
-        val confidence = (60 + (minutesToThreshold.let { 30 - abs(it - 5) }).coerceIn(0.0, 30.0)).toInt()
+        val confidence = (60 + (minutesToThreshold.let { 30 - abs(it - 5) }).coerceIn(0f, 30f)).toInt()
 
         return ThermalPrediction(
-            willOverheat = minutesToThreshold in 0.0..15.0,
+            willOverheat = minutesToThreshold in 0f..15f,
             confidencePercent = confidence.coerceIn(0, 99),
             etaSeconds = (minutesToThreshold * 60).toLong().coerceAtLeast(0),
             trendSlopePerMinute = slopePerMinute
