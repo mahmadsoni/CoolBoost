@@ -1,3 +1,5 @@
+@file:OptIn(androidx.compose.foundation.layout.ExperimentalLayoutApi::class)
+
 package com.coolboost.performance.ui.screens
 
 import androidx.compose.foundation.layout.*
@@ -57,17 +59,83 @@ fun SettingsScreen(container: AppContainer) {
         Spacer(Modifier.height(16.dp))
 
         GlassCard(modifier = Modifier.fillMaxWidth()) {
-            Text("About", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onSurface)
-            Spacer(Modifier.height(6.dp))
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    imageVector = androidx.compose.material.icons.Icons.Filled.Verified,
+                    contentDescription = null,
+                    tint = com.coolboost.performance.ui.theme.CoolCyan,
+                    modifier = Modifier.height(20.dp)
+                )
+                Spacer(Modifier.width(8.dp))
+                Text("Дар бораи барнома", style = MaterialTheme.typography.titleMedium, color = MaterialTheme.colorScheme.onSurface)
+            }
+            Spacer(Modifier.height(10.dp))
             Text(DeviceUtils.deviceLabel(), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
             Text(DeviceUtils.androidVersionLabel(), style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.onSurfaceVariant)
-            Spacer(Modifier.height(6.dp))
+            Spacer(Modifier.height(10.dp))
             Text(
-                "CoolBoost works entirely on-device: no root required, no data leaves your phone, no ads.",
+                "CoolBoost комилан дар дохили телефони шумо кор мекунад: root лозим нест, " +
+                    "ягон маълумот аз телефон берун намеравад, реклама вуҷуд надорад. " +
+                    "Ҳарорат, RAM, CPU ва батарея аз API-ҳои расмии Android хонда мешаванд, " +
+                    "на аз тахмин.",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+
+            Spacer(Modifier.height(14.dp))
+            HorizontalDivider(color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.1f))
+            Spacer(Modifier.height(14.dp))
+
+            Text("Технологияҳо", style = MaterialTheme.typography.labelLarge, color = MaterialTheme.colorScheme.onSurface)
+            Spacer(Modifier.height(8.dp))
+            androidx.compose.foundation.layout.FlowRow(
+                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                listOf(
+                    "Kotlin", "Jetpack Compose", "MVVM", "Coroutines & Flow",
+                    "Room", "Material 3"
+                ).forEach { TechBadge(it) }
+            }
+
+            Spacer(Modifier.height(16.dp))
+            HorizontalDivider(color = MaterialTheme.colorScheme.onSurfaceVariant.copy(alpha = 0.1f))
+            Spacer(Modifier.height(16.dp))
+
+            Text(
+                "Тарроҳӣ ва барномасозӣ",
+                style = MaterialTheme.typography.labelMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant
+            )
+            Spacer(Modifier.height(2.dp))
+            Text(
+                "Маҳмадсони",
+                style = MaterialTheme.typography.titleLarge,
+                color = com.coolboost.performance.ui.theme.CoolCyan
+            )
+            Spacer(Modifier.height(4.dp))
+            Text(
+                "Сохта шудааст бо диққат ба меъморӣ, амният ва суръат — на танҳо намуди зоҳирӣ.",
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )
         }
+    }
+}
+
+@Composable
+private fun TechBadge(label: String) {
+    androidx.compose.material3.Surface(
+        color = com.coolboost.performance.ui.theme.CoolCyan.copy(alpha = 0.12f),
+        shape = androidx.compose.foundation.shape.RoundedCornerShape(50),
+        modifier = Modifier
+    ) {
+        Text(
+            label,
+            style = MaterialTheme.typography.labelMedium,
+            color = com.coolboost.performance.ui.theme.CoolCyan,
+            modifier = Modifier.padding(horizontal = 12.dp, vertical = 6.dp)
+        )
     }
 }
 
