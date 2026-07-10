@@ -61,7 +61,7 @@ fun SettingsScreen(container: AppContainer) {
         GlassCard(modifier = Modifier.fillMaxWidth()) {
             Row(verticalAlignment = Alignment.CenterVertically) {
                 Icon(
-                    imageVector = androidx.compose.material.icons.Icons.Filled.Verified,
+                    imageVector = androidx.compose.material.icons.Icons.Filled.CheckCircle,
                     contentDescription = null,
                     tint = com.coolboost.performance.ui.theme.CoolCyan,
                     modifier = Modifier.height(20.dp)
